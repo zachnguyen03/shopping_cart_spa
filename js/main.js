@@ -3,18 +3,22 @@ const ProductCatalogue = document.getElementById("catalogue");
 let UserFirstName = document.getElementById("user-firstname");
 let UserLastName = document.getElementById("user-lastname");
 let UserAddress = document.getElementById("user-address");
+let totalPrice = 0;
 const products = [
     {
         name: 'RTX 2080',
-        price: 1000
+        price: 1000,
+        stock: 5
     },
     {
         name: 'RTX 2070',
-        price: 890
+        price: 890,
+        stock: 3
     },
     {
         name: 'RTX 2080TI',
-        price: 1500
+        price: 1500,
+        stock: 1
     }
 ]
 
@@ -52,10 +56,12 @@ form.addEventListener("submit", e => {
         for(var i=0; i < Products.length; i++) {
             ProductName = Products[i].name;
             ProductPrice = Products[i].price;
-            ProductCatalogue.innerHTML += '<h1>I am dep zai</h1>'
+            ProductInStock = Products[i].stock;
+            totalPrice += ProductPrice;
+            ProductCatalogue.innerHTML += '<p>You bought '+ProductName+' for '+ProductPrice+' euros</p>'
         }
+        ProductCatalogue.innerHTML += '<p>Total price is '+totalPrice+' euros</p>'
     }
-
 });
 
 
