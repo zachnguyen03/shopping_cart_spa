@@ -1,8 +1,8 @@
 const form = document.getElementById("myForm");
 const ProductCatalogue = document.getElementById("catalogue");
-const UserFirstName = document.getElementById("user-firstname").value;
-const UserLastName = document.getElementById("user-lastname").value;
-const UserAddress = document.getElementById("user-address").value;
+let UserFirstName = document.getElementById("user-firstname").value;
+let UserLastName = document.getElementById("user-lastname").value;
+let UserAddress = document.getElementById("user-address").value;
 const products = [
     {
         name: 'RTX 2080',
@@ -22,6 +22,13 @@ function loadLocalStorage() {
     localStorage.setItem("catalogue", JSON.stringify(products));
 };
 
+function resetFields() {
+    UserFirstName = '';
+    UserLastName = '';
+    UserAddress = '';
+    ProductCatalogue.innerHTML = "";
+}
+
 
 form.addEventListener("submit", e => {
     e.preventDefault();
@@ -37,3 +44,11 @@ form.addEventListener("submit", e => {
 
 });
 
+
+// form.addEventListener("reset", e => {
+//     e.preventDefault();
+//     ProductCatalogue.innerHTML = "";
+//     UserFirstName = '';
+//     UserLastName = '';
+//     UserAddress = '';
+// });
